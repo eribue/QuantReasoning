@@ -6,7 +6,7 @@ output: html_document
 ---
 
 
-#### Quantitative Reasoning Homeworks
+#### Quantitative Reasoning Problem sets
 ##### [Homework 1](HW1.html)
 ##### [Homework 2](HW2.html)
 
