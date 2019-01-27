@@ -1,0 +1,15 @@
+---
+title: "Assignments"
+author: "Erika Bueno"
+date: "January 26, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#### Quantitative Reasoning Homeworks
+##### [Homework 1](HW1.html)
+##### [Homework 2](HW2.html)
+
+
+```
+

@@ -1,0 +1,115 @@
+---
+title: "HW1"
+author: "Erika Bueno"
+date: "January 26, 2019"
+output: html_document
+---
+#### Problem set 1: Single-species models in discrete time
+
+####1.Modify the following code to determine the long-term behavior of the discrete time logistic growth model. In the example below the population moves towards an equilbrium point. How does the long-term behavior change as you increase r slowly.
+
+```{r}
+# Parameters
+max_time = 50
+r = 0.4
+K = 1
+
+N = vector('numeric',length=max_time)
+N[1] = 0.1
+
+# Iterate model
+for (t in 1:max_time){
+  N[t+1] = N[t] + r*N[t]*(1 - N[t]/K)
+}
+
+plot(N)
+
+#increasing r=0.5
+max_time = 50
+r = 0.5
+K = 1
+
+N = vector('numeric',length=max_time)
+N[1] = 0.1
+
+# Iterate model
+for (t in 1:max_time){
+  N[t+1] = N[t] + r*N[t]*(1 - N[t]/K)
+}
+
+plot(N)
+
+#increasing r= 0.6
+max_time = 50
+r = 0.6
+K = 1
+
+N = vector('numeric',length=max_time)
+N[1] = 0.1
+
+# Iterate model
+for (t in 1:max_time){
+  N[t+1] = N[t] + r*N[t]*(1 - N[t]/K)
+}
+
+plot(N)
+
+#increasing r=0.8
+max_time = 50
+r = 0.8
+K = 1
+
+N = vector('numeric',length=max_time)
+N[1] = 0.1
+
+# Iterate model
+for (t in 1:max_time){
+  N[t+1] = N[t] + r*N[t]*(1 - N[t]/K)
+}
+
+plot(N)
+
+#increasing r=1
+max_time = 50
+r = 1
+K = 1
+
+N = vector('numeric',length=max_time)
+N[1] = 0.1
+
+# Iterate model
+for (t in 1:max_time){
+  N[t+1] = N[t] + r*N[t]*(1 - N[t]/K)
+}
+
+plot(N)
+#As you increase r (populatio growth rate) the population size over time reaches equlibrium quicker```
+```
+####2.To show the results in question 1 more clearly, write R code to build a plot of the equilibrium value versus the value for r. To do this, run the model for 50 years, and only plot the last 10 years. If the solution is an equilibrium point, all 10 years should be the same values.
+```{r}
+max_time = 50
+r = 0.4
+K = 1
+
+N = vector('numeric',length=max_time)
+N[1] = 0.1
+
+# Iterate model
+for (t in 1:max_time){
+  N[t+1] = N[t] + r*N[t]*(1 - N[t]/K)
+}
+
+plot(N)
+
+
+myplot<-plot(x=0, y=0.1, xlim =c(0,3), ylim = c(0,1.5))
+
+rseqs<- seq(from=0, to= 3, by=0.01)
+
+for (r in rseqs) {
+for (t in 1:max_time) {
+  N[t+1] = N[t] + r*N[t]*(1 - N[t]/K)}
+  points(x = rep(r,11), y= N[40:50])
+}
+
+```
