@@ -88,7 +88,7 @@ par(mfrow=c(1,1))
 plot(out[,1],out[,2],ylab='N',xlab='time',las=1)
 
 
-# Equilbrium points: N*=0, N*=10, N*=50
+# Equilbrium points:N*=10, N*=50
 # Stability points: dF/dN|b*N/(N+M) - d - c*N => [bM/(N+M)^2] - c
 
 # parameters
@@ -97,24 +97,21 @@ c=0.02
 M=50 
 d=0.2
 #stability<- b*M/((N+M)^2) - c
-N=0
-dFdN <- b*(M/(N+M)^2) - c
-# print(dFdN)  0.028
 N1=10
 dFdN1 <- b*(M/(N1+M)^2) - c
-# print(dFdN1) 0.013
+# print(dFdN1) 0.013 #close to zero
 N2= 50
 dFdN2<- b*(M/(N2+M)^2) - c
 # print(dFdN2) -0.008 #negative value
 
 # Plot of b*N/(N+M) - d - c*N
 
-x<- c(0,10,50)
-y<- c(0,0,0)
+x<- c(10,50)
+y<- c(0,0)
 points<-cbind(x,y)
 
-curve(b*x/(x+M) - d - c*x, from=-50, to=100, xlab="x", ylab="y")
-points(points)
+curve(b*x/(x+M) - d - c*x, from=-0, to=100, xlab="x", ylab="y")
+points(points, pch=c(1,16))
 
 
 func<-b*x/(x+M) - d - c*x
@@ -124,7 +121,9 @@ newpoints<-as.data.frame(points)
 # using ggplot
 library(ggplot2)
 test <- function(x) {2.4 * x/(x+50) - 0.2 - 0.02 * x}
-f <- ggplot(data.frame(x = c(-50, 100)), aes(x)) + xlab("N size") + labs(title = "function: -b*x/(x+M) - d - c*x ")
-f + stat_function(fun = test) +geom_point(data=newpoints, aes(x=x, y=y), shape=1)
+f <- ggplot(data.frame(x = c(-0, 100)), aes(x)) + xlab("N size") + labs(title = "function: -b*x/(x+M) - d - c*x ")
+f + stat_function(fun = test) +geom_point(data=newpoints, aes(x=x, y=y),pch=c(1,16))
+
+#point N*10 is unstable and will go to extinction while N*50 is stable and will grow
 
 ```
