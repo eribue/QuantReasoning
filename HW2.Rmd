@@ -44,9 +44,7 @@ years<-t/365
 
 # equilbrium points N*
 # N*= dM/b-d 
-# b= d + dM/n
-# M= bN/d - n
-# d= bN/N+M
+# N*= 0
 
 # stability point
 # F= b*N/N+M -d #taking the derivative of F in terms of N
@@ -54,9 +52,11 @@ years<-t/365
 # = b[dF/dN N/N+M] - 0 #applying the chain rule d/dN=F (G(N)), d goes to zero because its a constant 
 # = b [(N+M)*1 - N(1+0)/(N+M)^2] #M is a constant because its not in terms of N
 # = b[N+M-N/(N+M)^2]=> b[M/(N+M)^2]
-# dF/dN|N=dM/b-d => (b-d)2/bM #the numerator will always remain postive, stable when (b-d)^2 does equal 0 (b cannot be equal to d) and when bM is less than 0. Therefore, never stable.
+# dF/dN|N=dM/b-d => (b-d)^2/bM 
 
 ```
+
+#####The numerator will always remain postive, stable when (b-d)^2 does equal 0 (b cannot be equal to d) and when bM is less than 0 (which is biologically impossible; birthrate and and number of males cannot equal zero) Therefore, never stable.
 #####The critical threshold for extinction is determined by the equilibrium point, N*= dM/b-d. If N* falls below zero, the population will have a negative per capita growth rate (i.e. when b<d) This falls in line with the allee affect, which occurs when the growth rate of a population declines when the population size decreases. In general, any stochastic change in the population that has a negavtive effect fitness (sterile males, diffuclty locating mates) will cause a decrease in population size as a result. In the case of sterile insect release, the allee effect will be strongest when the number of sterile males is sufficiently large enough to decrease the population growth rate (by lowering the number of births in the population).
 
 #####3)The previous problem did not include any negative density-dependence. To test this assumption, we can include competition in our previous problem. Assuming N=0 is an equilbium point (if N=0, it will not change), modify the code below to estimate the two other equilbrium points and each of their stability. If the population drops below 0, assume it went extinct. You can modify both the initial state value for N or the amount of time (times object) to run the model. When you know the equilbrium points and their stability, sketch a plot of and show the equilibrium points as open (unstable) or closed (stable) balls.
@@ -115,16 +115,16 @@ points<-cbind(x,y)
 
 curve(b*x/(x+M) - d - c*x, from=-50, to=100, xlab="x", ylab="y")
 points(points)
-newpoints<-as.data.frame(points)
+
 
 func<-b*x/(x+M) - d - c*x
+
+newpoints<-as.data.frame(points)
+
 # using ggplot
 library(ggplot2)
-library(ggthemes)
 test <- function(x) {2.4 * x/(x+50) - 0.2 - 0.02 * x}
 f <- ggplot(data.frame(x = c(-50, 100)), aes(x)) + xlab("N size") + labs(title = "function: -b*x/(x+M) - d - c*x ")
 f + stat_function(fun = test) +geom_point(data=newpoints, aes(x=x, y=y), shape=1)
-
-
 
 ```
