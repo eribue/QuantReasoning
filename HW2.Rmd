@@ -49,7 +49,7 @@ years<-t/365
 # d= bN/N+M
 
 # stability point
-# F= b*F/F+M -d #taking the derivative of F in terms of N
+# F= b*N/N+M -d #taking the derivative of F in terms of N
 # dF/dN=[b*N/N+M -d]
 # = b[dF/dN N/N+M] - 0 #applying the chain rule d/dN=F (G(N)), d goes to zero because its a constant 
 # = b [(N+M)*1 - N(1+0)/(N+M)^2] #M is a constant because its not in terms of N
@@ -105,7 +105,7 @@ dFdN1 <- b*(M/(N1+M)^2) - c
 # print(dFdN1) 0.013
 N2= 50
 dFdN2<- b*(M/(N2+M)^2) - c
-# print(dFdN2) -0.008 #negative value, unstable?
+# print(dFdN2) -0.008 #negative value
 
 # Plot of b*N/(N+M) - d - c*N
 
@@ -115,6 +115,16 @@ points<-cbind(x,y)
 
 curve(b*x/(x+M) - d - c*x, from=-50, to=100, xlab="x", ylab="y")
 points(points)
+newpoints<-as.data.frame(points)
+
+func<-b*x/(x+M) - d - c*x
+# using ggplot
+library(ggplot2)
+library(ggthemes)
+test <- function(x) {2.4 * x/(x+50) - 0.2 - 0.02 * x}
+f <- ggplot(data.frame(x = c(-50, 100)), aes(x)) + xlab("N size") + labs(title = "function: -b*x/(x+M) - d - c*x ")
+f + stat_function(fun = test) +geom_point(data=newpoints, aes(x=x, y=y), shape=1)
+
 
 
 ```
