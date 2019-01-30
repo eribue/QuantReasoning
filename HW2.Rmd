@@ -127,3 +127,5 @@ f + stat_function(fun = test) +geom_point(data=newpoints, aes(x=x, y=y),pch=c(1,
 #point N*10 is unstable and will go to extinction while N*50 is stable and will grow
 
 ```
+
+comadre$metadata$CommonName
