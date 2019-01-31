@@ -29,6 +29,13 @@ analysis<-eigen.analysis(aMatrix)
 #asymptotic growth rate: lambda
 analysis$lambda1
 # 1.416025
+# Greater than 1 means the population is growing exponentially
 
+# Stable age distribution
+analysis$stable.age
+#[1] 0.577948350 0.253786641 0.107176347 0.042884913 0.014779283 0.002264864
+#[7] 0.001159602
+
+# This tells us that most of the population is in the first stage (eggs) and few hatch and then subsequently make it to adulthood.
 
 ```
