@@ -14,11 +14,11 @@ Using the calculations in part (c), or additional calculations, address the ques
 
 ```{r}
 
-dataComadre<-comadre$metadata$CommonName
-grep(dataComadre$metadata$Order, pattern= 'Lepidoptera') #search by order
+# dataComadre<-comadre$metadata$CommonName
+grep(comadre$metadata$Order, pattern= 'Lepidoptera') #search by order
 
-dataComadre$mat[845][[1]]$matA #alexandras sulphur butterfly
-aMatrix<-dataComadre$mat[845][[1]]$matA
+comadre$mat[845][[1]]$matA #alexandras sulphur butterfly
+aMatrix<-comadre$mat[845][[1]]$matA
 print(aMatrix)
 library(demogR)
 help(package="demogR")
