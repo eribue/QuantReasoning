@@ -1,0 +1,34 @@
+---
+title: "HW3"
+author: "Erika Bueno"
+date: "January 28, 2019"
+output: html_document
+---
+#####In teams of two, address the following questions:
+
+#####What species (and location if available) did you choose? Why did you choose the species? We chose the 
+What question do you want to answer about this population (e.g. population status, best management strategies)?
+######Calculate eigenvalue, stable age distribution, elasticity, and sensitivity. What does this tell you about the population?
+Using the calculations in part (c), or additional calculations, address the question you proposed in part (b).
+######Submit your writeup as an R markdown file on Github. This can be a private or public repository. I expect to see commits to the repository from each partner.
+
+```{r}
+
+dataComadre<-comadre$metadata$CommonName
+grep(dataComadre$metadata$Order, pattern= 'Lepidoptera') #search by order
+
+dataComadre$mat[845][[1]]$matA #alexandras sulphur butterfly
+aMatrix<-dataComadre$mat[845][[1]]$matA
+print(aMatrix)
+library(demogR)
+help(package="demogR")
+
+#Eigenvalue analysis
+analysis<-eigen.analysis(aMatrix)
+
+#asymptotic growth rate: lambda
+analysis$lambda1
+# 1.416025
+
+
+```
