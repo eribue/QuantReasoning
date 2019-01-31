@@ -6,7 +6,7 @@ output: html_document
 ---
 #####In teams of two, address the following questions:
 
-#####What species (and location if available) did you choose? Why did you choose the species? We chose the 
+#####What species (and location if available) did you choose? Why did you choose the species? We chose the queen alexendra sulphur butterfly (Colias alexandra) because we wanted to understand the population status and determine which life stage is most important for maintaining the growth of population.
 What question do you want to answer about this population (e.g. population status, best management strategies)?
 ######Calculate eigenvalue, stable age distribution, elasticity, and sensitivity. What does this tell you about the population?
 Using the calculations in part (c), or additional calculations, address the question you proposed in part (b).
@@ -14,7 +14,7 @@ Using the calculations in part (c), or additional calculations, address the ques
 
 ```{r}
 
-# dataComadre<-comadre$metadata$CommonName
+
 grep(comadre$metadata$Order, pattern= 'Lepidoptera') #search by order
 
 comadre$mat[845][[1]]$matA #alexandras sulphur butterfly
@@ -37,5 +37,35 @@ analysis$stable.age
 #[7] 0.001159602
 
 # This tells us that most of the population is in the first stage (eggs) and few hatch and then subsequently make it to adulthood.
+
+analysis$elasticities
+
+#             A1        A2        A3        A4        A5        A6        A7
+# [1,] 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.1428571
+# [2,] 0.1428571 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+# [3,] 0.0000000 0.1428571 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+# [4,] 0.0000000 0.0000000 0.1428571 0.0000000 0.0000000 0.0000000 0.0000000
+# [5,] 0.0000000 0.0000000 0.0000000 0.1428571 0.0000000 0.0000000 0.0000000
+# [6,] 0.0000000 0.0000000 0.0000000 0.0000000 0.1428571 0.0000000 0.0000000
+# [7,] 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.1428571 0.0000000
+# attr(,"class")
+# [1] "leslie.matrix"
+
+# The elasticities tells us that any in difference surival among the life stages do not affect the growth rate of the population. 
+comadre$metadata$DOI.ISBN[845]
+
+analysis$sensitivities
+#           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]         [,7]
+# [1,] 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0002866303
+# [2,] 0.3253286 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000000
+# [3,] 0.0000000 0.3382765 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000000
+# [4,] 0.0000000 0.0000000 0.3570232 0.0000000 0.0000000 0.0000000 0.0000000000
+# [5,] 0.0000000 0.0000000 0.0000000 0.4145273 0.0000000 0.0000000 0.0000000000
+# [6,] 0.0000000 0.0000000 0.0000000 0.0000000 0.9322088 0.0000000 0.0000000000
+# [7,] 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.2790197 0.0000000000
+# attr(,"class")
+# [1] "leslie.matrix"
+
+#  The sensitivities tell us that stage 5 which is the diapause stage of the Colias butterfly, is the most important stage for the growth of the population. Based on the original study by Hayes 1981, the author concluded that diapause stage contributed the most towards population growth because of environmental conditions such as cold weather. 
 
 ```
