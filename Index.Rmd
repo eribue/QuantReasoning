@@ -9,6 +9,7 @@ output: html_document
 #### Quantitative Reasoning Problem sets
 ##### [Homework 1](HW1.html)
 ##### [Homework 2](HW2.html)
+##### [Homework 3](HW3.html)
 
 
 
