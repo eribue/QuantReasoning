@@ -136,10 +136,10 @@ choose the species? We chose the queen alexendra sulphur butterfly
 status.
 
 What question do you want to answer about this population
-(e.g.~population status, best management strategies)? The question want
-to answer is: What life stage (egg, 1st instar, 2nd instar, 3rd instar,
-diapause (pupae), post diapause, adult) is most important for
-maintaining the growth of the population?
+(e.g.~population status, best management strategies)?\\
+The question want to answer is: What life stage (egg, 1st instar, 2nd
+instar, 3rd instar, diapause (pupae), post diapause, adult) is most
+important for maintaining the growth of the population?
 
 Calculate eigenvalue, stable age distribution, elasticity, and
 sensitivity. What does this tell you about the population?
@@ -164,7 +164,7 @@ from each partner.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{comadre}\OperatorTok{$}\NormalTok{mat[}\DecValTok{845}\NormalTok{][[}\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{matA }\CommentTok{#alexandras sulphur butterfly with 7 life stages}
+\NormalTok{comadre}\OperatorTok{$}\NormalTok{mat[}\DecValTok{845}\NormalTok{][[}\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{matA }\CommentTok{#Alexandras sulphur butterfly with 7 life stages}
 \end{Highlighting}
 \end{Shaded}
 
@@ -242,7 +242,8 @@ from each partner.
 \CommentTok{#[1] 0.577948350 0.253786641 0.107176347 0.042884913 0.014779283 0.002264864}
 \CommentTok{#[7] 0.001159602}
 
-\CommentTok{# This tells us that most of the population is in the first stage (eggs) and few hatch and then subsequently make it to adulthood.}
+\CommentTok{# This tells us that most of the population is in the first stage (eggs) and few hatch}
+\CommentTok{# and then subsequently make it to adulthood.}
 \NormalTok{analysis}\OperatorTok{$}\NormalTok{elasticities}
 \end{Highlighting}
 \end{Shaded}
@@ -273,7 +274,8 @@ from each partner.
 \CommentTok{# attr(,"class")}
 \CommentTok{# [1] "leslie.matrix"}
 
-\CommentTok{# The elasticities tells us that any in difference surival among the life stages do not affect the growth rate of the population. }
+\CommentTok{# The elasticities tells us that any in difference surival among the life stages do not affect}
+\CommentTok{#the growth rate of the population. }
 \NormalTok{comadre}\OperatorTok{$}\NormalTok{metadata}\OperatorTok{$}\NormalTok{DOI.ISBN[}\DecValTok{845}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
@@ -322,7 +324,11 @@ from each partner.
 \CommentTok{# attr(,"class")}
 \CommentTok{# [1] "leslie.matrix"}
 
-\CommentTok{#  The sensitivities tell us that stage 5 which is the diapause stage of the Colias alexandra butterfly, is the most important stage for the growth of the population. Based on the original study by Hayes, 1981, the author concluded that diapause stage contributed the most towards population growth because of environmental conditions such as cold weather which coincides with our analysis.}
+\CommentTok{# The sensitivities tell us that stage 5 which is the diapause stage of the Colias alexandra}
+\CommentTok{# butterfly, is the most important stage for the growth of the population. }
+\CommentTok{#Based on the original study by Hayes, 1981, the author concluded that diapause stage}
+\CommentTok{#contributed the most towards population growth because of environmental conditions}
+\CommentTok{#such as cold weather which coincides with our analysis.}
 \end{Highlighting}
 \end{Shaded}
 

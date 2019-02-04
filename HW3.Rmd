@@ -8,9 +8,11 @@ output:
 ---
 In teams of two, address the following questions:
 
-What species (and location if available) did you choose? Why did you choose the species? We chose the queen alexendra sulphur butterfly (Colias alexandra) because we wanted to understand its population status.
+What species (and location if available) did you choose? Why did you choose the species? 
+We chose the queen alexendra sulphur butterfly (Colias alexandra) because we wanted to understand its population status.
 
-What question do you want to answer about this population (e.g. population status, best management strategies)?  The question want to answer is: What life stage (egg, 1st instar, 2nd instar, 3rd instar, diapause (pupae), post diapause, adult) is most important for maintaining the growth of the population?
+What question do you want to answer about this population (e.g. population status, best management strategies)?  
+The question want to answer is: What life stage (egg, 1st instar, 2nd instar, 3rd instar, diapause (pupae), post diapause, adult) is most important for maintaining the growth of the population?
 
 Calculate eigenvalue, stable age distribution, elasticity, and sensitivity. What does this tell you about the population? 
 
