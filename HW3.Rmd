@@ -4,28 +4,29 @@ author: "Erika Bueno"
 date: "January 28, 2019"
 output: html_document
 ---
-#####In teams of two, address the following questions:
+In teams of two, address the following questions:
 
-#####What species (and location if available) did you choose? Why did you choose the species? We chose the queen alexendra sulphur butterfly (Colias alexandra) because we wanted to understand the population status and determine which life stage is most important for maintaining the growth of population.
-What question do you want to answer about this population (e.g. population status, best management strategies)?
-######Calculate eigenvalue, stable age distribution, elasticity, and sensitivity. What does this tell you about the population?
+What species (and location if available) did you choose? Why did you choose the species? We chose the queen alexendra sulphur butterfly (Colias alexandra) because we wanted to understand its population status.
+
+What question do you want to answer about this population (e.g. population status, best management strategies)?  The question want to answer is: What life stage (egg, 1st instar, 2nd instar, 3rd instar, diapause (pupae), post diapause, adult) is most important for maintaining the growth of the population?
+
+Calculate eigenvalue, stable age distribution, elasticity, and sensitivity. What does this tell you about the population? 
+
 Using the calculations in part (c), or additional calculations, address the question you proposed in part (b).
-######Submit your writeup as an R markdown file on Github. This can be a private or public repository. I expect to see commits to the repository from each partner.
+
+Submit your writeup as an R markdown file on Github. This can be a private or public repository. I expect to see commits to the repository from each partner.
 
 ```{r}
-
-
 grep(comadre$metadata$Order, pattern= 'Lepidoptera') #search by order
 
-comadre$mat[845][[1]]$matA #alexandras sulphur butterfly
+comadre$mat[845][[1]]$matA #alexandras sulphur butterfly with 7 life stages
 aMatrix<-comadre$mat[845][[1]]$matA
 print(aMatrix)
-library(demogR)
-help(package="demogR")
+library(demogR) #demogR package allows you to analyze age-structured population models
+#help(package="demogR") #help menu for demogR
 
 #Eigenvalue analysis
 analysis<-eigen.analysis(aMatrix)
-
 #asymptotic growth rate: lambda
 analysis$lambda1
 # 1.416025
@@ -37,7 +38,6 @@ analysis$stable.age
 #[7] 0.001159602
 
 # This tells us that most of the population is in the first stage (eggs) and few hatch and then subsequently make it to adulthood.
-
 analysis$elasticities
 
 #             A1        A2        A3        A4        A5        A6        A7
@@ -66,6 +66,6 @@ analysis$sensitivities
 # attr(,"class")
 # [1] "leslie.matrix"
 
-#  The sensitivities tell us that stage 5 which is the diapause stage of the Colias butterfly, is the most important stage for the growth of the population. Based on the original study by Hayes 1981, the author concluded that diapause stage contributed the most towards population growth because of environmental conditions such as cold weather. 
+#  The sensitivities tell us that stage 5 which is the diapause stage of the Colias alexandra butterfly, is the most important stage for the growth of the population. Based on the original study by Hayes, 1981, the author concluded that diapause stage contributed the most towards population growth because of environmental conditions such as cold weather which coincides with our analysis.
 
 ```
