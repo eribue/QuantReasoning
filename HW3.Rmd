@@ -1,8 +1,10 @@
 ---
 title: "HW3"
-author: "Erika Bueno"
+author: "Erika Bueno and Zoe Portlas"
 date: "January 28, 2019"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 In teams of two, address the following questions:
 
@@ -17,6 +19,10 @@ Using the calculations in part (c), or additional calculations, address the ques
 Submit your writeup as an R markdown file on Github. This can be a private or public repository. I expect to see commits to the repository from each partner.
 
 ```{r}
+
+
+
+load("C:/Users/ebuen/Desktop/QuantReasoning/COMADRE_v.2.0.1.RData")
 grep(comadre$metadata$Order, pattern= 'Lepidoptera') #search by order
 
 comadre$mat[845][[1]]$matA #alexandras sulphur butterfly with 7 life stages
